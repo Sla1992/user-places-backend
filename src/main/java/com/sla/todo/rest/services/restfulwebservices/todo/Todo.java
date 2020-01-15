@@ -1,6 +1,7 @@
 package com.sla.todo.rest.services.restfulwebservices.todo;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class Todo {
 
@@ -16,6 +17,21 @@ public class Todo {
         this.description = description;
         this.targetDate = targetDate;
         this.isDone = isDone;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+        Todo todo = (Todo) obj;
+        return id == todo.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 
     @Override

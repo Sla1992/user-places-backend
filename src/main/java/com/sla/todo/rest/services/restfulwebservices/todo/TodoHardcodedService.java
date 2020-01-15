@@ -14,15 +14,35 @@ public class TodoHardcodedService {
 
 
     static{
-        todos.add(new Todo(++idCounter, "manuel","Learn to Dance", new Date(), false));
-        todos.add(new Todo(++idCounter, "manuel","Learn about Microservices", new Date(), false));
-        todos.add(new Todo(++idCounter, "manuel","Wasoimmer", new Date(), false));
+        todos.add(new Todo(++idCounter, "Frolian","Learn to Dance", new Date(), false));
+        todos.add(new Todo(++idCounter, "Frolian","Learn about Microservices", new Date(), false));
+        todos.add(new Todo(++idCounter, "Frolian","Wasoimmer", new Date(), false));
     }
 
     public List <Todo> findAll(){
-
         return todos;
+    }
 
+    public Todo deleteById(long id) {
+        Todo todo = findById(id);
+
+        if(todo==null) {
+            return null;
+        }
+
+        if(todos.remove(todo)){
+            return todo;
+        }
+        return null;
+    }
+
+    private Todo findById(long id) {
+        for(Todo todo:todos) {
+            if(todo.getId() == id) {
+                return todo;
+            }
+        }
+        return null;
     }
 
 }
