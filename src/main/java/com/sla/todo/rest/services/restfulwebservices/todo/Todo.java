@@ -11,42 +11,17 @@ public class Todo {
     private Date targetDate;
     private boolean isDone;
 
-    protected Todo(){
+    public Todo() {
 
     }
 
     public Todo(long id, String username, String description, Date targetDate, boolean isDone) {
+        super();
         this.id = id;
         this.username = username;
         this.description = description;
         this.targetDate = targetDate;
         this.isDone = isDone;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null || getClass() != obj.getClass())
-            return false;
-        Todo todo = (Todo) obj;
-        return id == todo.id;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
-
-    @Override
-    public String toString() {
-        return "Todo{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", description='" + description + '\'' +
-                ", targetDate=" + targetDate +
-                ", isDone=" + isDone +
-                '}';
     }
 
     public long getId() {
@@ -85,8 +60,30 @@ public class Todo {
         return isDone;
     }
 
-    public void setDone(boolean done) {
-        isDone = done;
+    public void setDone(boolean isDone) {
+        this.isDone = isDone;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + (int) (id ^ (id >>> 32));
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Todo other = (Todo) obj;
+        if (id != other.id)
+            return false;
+        return true;
     }
 
 

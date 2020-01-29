@@ -1,10 +1,10 @@
-package com.sla.todo.rest.services.restfulwebservices;
+package com.sla.todo.rest.basic.auth;
 
-public class HelloWorldBean {
+public class AuthenticationBean {
 
     private String message;
 
-    public HelloWorldBean(String message){
+    public AuthenticationBean(String message){
         this.message = message;
     }
 
