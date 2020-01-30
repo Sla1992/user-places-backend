@@ -7,7 +7,7 @@ public class BcryptEncoderTest {
 
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         for(int i=1; i<=10;i++){
-            String encodedString = encoder.encode("sml12345");
+            String encodedString = encoder.encode("aisduadis");
             System.out.println(encodedString);
         }
 
