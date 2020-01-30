@@ -18,13 +18,13 @@ public class TodoResource {
     @Autowired
     private TodoHardcodedService todoService;
 
-    @GetMapping("/users/{username}/todos")
+    @GetMapping("/users/{username}/places")
     public List<Todo> getAllTodos(@PathVariable String username) {
         // Thread.sleep(3000);
         return todoService.findAll();
     }
 
-    @GetMapping("/users/{username}/todos/{id}")
+    @GetMapping("/users/{username}/places/{id}")
     public Todo getTodo(@PathVariable String username, @PathVariable long id) {
         // Thread.sleep(3000);
         return todoService.findById(id);
@@ -32,7 +32,7 @@ public class TodoResource {
 
 
     // DELETE /users/{username}/todos/{id}
-    @DeleteMapping("/users/{username}/todos/{id}")
+    @DeleteMapping("/users/{username}/places/{id}")
     public ResponseEntity<Void> deleteTodo(@PathVariable String username, @PathVariable long id) {
 
         Todo todo = todoService.deleteById(id);
@@ -46,7 +46,7 @@ public class TodoResource {
 
     //Edit/Update a Todo
     //PUT /users/{user_name}/todos/{todo_id}
-    @PutMapping("/users/{username}/todos/{id}")
+    @PutMapping("/users/{username}/places/{id}")
     public ResponseEntity<Todo> updateTodo(
             @PathVariable String username,
             @PathVariable long id, @RequestBody Todo todo){
@@ -56,7 +56,7 @@ public class TodoResource {
         return new ResponseEntity<Todo>(todo, HttpStatus.OK);
     }
 
-    @PostMapping("/users/{username}/todos")
+    @PostMapping("/users/{username}/places")
     public ResponseEntity<Void> updateTodo(
             @PathVariable String username, @RequestBody Todo todo){
 
