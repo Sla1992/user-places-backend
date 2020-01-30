@@ -10,12 +10,12 @@ import java.util.List;
 public class TodoHardcodedService {
 
     private static List<Todo> todos = new ArrayList<>();
-    private static int idCounter = 0;
+    private static long idCounter = 0;
 
     static {
-        todos.add(new Todo(++idCounter, "in28minutes", "Learn to Dance 2", new Date(), false));
-        todos.add(new Todo(++idCounter, "in28minutes", "Learn about Microservices 2", new Date(), false));
-        todos.add(new Todo(++idCounter, "in28minutes", "Learn about Angular", new Date(), false));
+        todos.add(new Todo(++idCounter, "Frolian", "I visited a long time ago becaus i dont know how o write and i dont know exactly what to write but to fill in this description i need to to this 1",new Date(), true, "Visiting Grand Canyon"));
+        todos.add(new Todo(++idCounter, "Frolian", "I visited a long time ago becaus i dont know how o write and i dont know exactly what to write but to fill in this description i need to to this 2",new Date(), false, "Visiting Grand Canyon 2"));
+        todos.add(new Todo(++idCounter, "Frolian", "I visited a long time ago becaus i dont know how o write and i dont know exactly what to write but to fill in this description i need to to this 3",new Date(), true, "Visiting Grand Canyon 3"));
     }
 
     public List<Todo> findAll() {
