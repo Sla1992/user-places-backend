@@ -24,6 +24,7 @@ public class TodoJpaResource {
     @GetMapping("/jpa/users/{username}/places")
     public List<Todo> getAllTodos(@PathVariable String username) {
         // Thread.sleep(3000);
+
         return todoJpaRepository.findByUsername(username);
         //return todoService.findAll();
     }
@@ -64,9 +65,7 @@ public class TodoJpaResource {
             @PathVariable String username,
             @RequestBody Todo todo){
 
-        todo.setUsername(username);
-
-        Todo createdTodo = todoJpaRepository.save(todo);
+        Todo createdTodo = todoService.save(todo);
 
         //Location
         //Get current resource url

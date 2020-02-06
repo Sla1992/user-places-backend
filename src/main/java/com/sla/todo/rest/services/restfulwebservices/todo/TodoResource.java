@@ -11,8 +11,9 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.net.URI;
 import java.util.List;
 
-@RestController
+
 @CrossOrigin(origins="http://localhost:4200")
+@RestController
 public class TodoResource {
 
     @Autowired
@@ -33,7 +34,7 @@ public class TodoResource {
 
     // DELETE /users/{username}/todos/{id}
     @DeleteMapping("/users/{username}/places/{id}")
-    public ResponseEntity<Void> deleteTodo(@PathVariable String username, @PathVariable long id) {
+    public ResponseEntity<Void> deleteTodo(@PathVariable String username, @PathVariable Long id) {
 
         Todo todo = todoService.deleteById(id);
 
@@ -49,7 +50,7 @@ public class TodoResource {
     @PutMapping("/users/{username}/places/{id}")
     public ResponseEntity<Todo> updateTodo(
             @PathVariable String username,
-            @PathVariable long id, @RequestBody Todo todo){
+            @PathVariable Long id, @RequestBody Todo todo){
 
         Todo todoUpdated = todoService.save(todo);
 

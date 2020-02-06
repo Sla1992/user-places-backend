@@ -21,5 +21,4 @@ public class JwtUnAuthorizedResponseAuthenticationEntryPoint implements Authenti
         response.sendError(HttpServletResponse.SC_UNAUTHORIZED,
                 "You would need to provide the Jwt Token to Access This resource");
     }
-
 }
