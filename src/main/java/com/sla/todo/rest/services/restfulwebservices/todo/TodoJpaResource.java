@@ -42,8 +42,7 @@ public class TodoJpaResource {
     public ResponseEntity<Void> deleteTodo(@PathVariable String username, @PathVariable long id) {
 
         todoJpaRepository.deleteById(id);
-
-        return ResponseEntity.notFound().build();
+        return null;
     }
 
     //Edit/Update a Todo
